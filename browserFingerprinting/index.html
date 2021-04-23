@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Browser Fingerprinting</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            canvas {
+                border-radius: 16px;
+                border: 2px solid white;
+                padding: 20px;
+                box-shadow: 0px 0px 8px grey;
+            }
+            @media screen and (max-width: 380px) {
+                canvas {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="test2"></div>
+        <div class="jumbotron text-center bg-primary text-white">
+            <h1>Data Used For Browser Fingerprinting</h1>
+            <p>This web application shows a few pieces of information that websites knows about you. Most of this data is used to personalize your browsing experience. A website knowing just a few pieces of information – such as your browser or timezone – may not be harmful. However, this entire collection of data can be used to monitor your browsing habits, create browser fingerprints, steal information, and perform other malicious activities.</p> 
+            <p>This data is not guaranteed to be accurate, especially if you use privacy-centered extensions and/or software.</p>
+        </div>
+        <noscript><p class="alert alert-warning">JavaScript is disabled. Most of this website will not work.</p></noscript>
+        <div class="container">
+            <!--Basic info-->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fa fa-info" aria-hidden="true"></i>&nbsp;&nbsp;Basic Information</h4>
+                    <h5>Software</h5>
+                    <div class="ml-4">
+                        <p id="os"></p>
+                        <p id="browser"><b>Browser (via user agent): </b></p>
+                        <p id="browserDuck"><b>Browser <a class="explainer_link"href="https://en.wikipedia.org/wiki/Duck_typing">(via duck typing)</a>: </b></p>
+                        <p id="plugins"><b>Plugins installed: </b></p>
+                        <p id="cookies"><b>Cookies enabled: </b><br></p>
+                        <p id="dnc"><b>Do Not Track Request enabled: </b><br></p>
+                        <p><b>Canvas fingerprint:</b></p>
+                        <div id="canvas">
+                            <canvas id="myCanvas" width="256" height="224">
+                                <p class='text-danger'>This browser does not support canvas elements.</p>
+                            </canvas>
+                        </div>
+                    </div>
+                    <h5>Hardware</h5>
+                    <div class="ml-4">
+                        <p id="cpu"><b>CPU info: </b></p>
+                        <p id="gpu"><b>GPU info/WebGL renderer: </b></p>
+                        <p id="battery"><b>Battery info: </b><br></p>
+                        <p id="screenRes"><b>Screen resolution: </b></p>
+                    </div>
+                    <div class="card bg-light text-black">
+                        <div class="card-body">
+                            <h5>Explaination</h5>
+                            <p>Developers can use the <code>navigator.userAgent</code> JavaScript property to list information about the user's browser, OS, etc.</p>
+                            <p>Duck typing is a technique used to identify user information based on the duck test (if it walks, looks, and sounds like a duck... then it IS a duck). Users can spoof their user agent to hide their identity. However, duck typing combats this by identifing browsers based on known quirks they have.</p>
+                            <p>Cookies a small pieces of information that your browser stores locally on your device. They contain personal configurations such as whether you're using dark or light mode. When you visit the site again, these cookies are read to reintergrate those settings into the site. Unfortunately, many sites abuse cookies to <a href="https://privacy.net/stop-cookies-tracking/">spy on users web activity</a>. You can enable the "Send Do Not Track Request" feature in your browser, but many websites will simply ignore this because it imposes no technical limitations or authority.</p>
+                            <p>Canvas elements are used to draw items on a webpage. This feature has been abused to create fingerprints of users. Threat actors will call the canvas API to draw text on screen, save it as an image, and create a hash of the image. Hash algorithms create unique but irreversible text representations of data. Due to the differences in which browsers and processors draw graphics, this can be used to identify graphics hardware on your machine.</p>
+                            
+                            <p>The <code>navigator.getBattery()</code> property can be used to view a device's battery percentage. Some malicious actors haved used it to <a href="https://www.theguardian.com/technology/2016/aug/02/battery-status-indicators-tracking-online">track your online activity</a>. This is a deprecated feature that has been removed from most browsers due to security concerns.</p>
+                            <p>Your screen resolution can be used by threat actors to discover what type of device you're using. For example, if an outdated resolution is found (like 800 x 600 or 1024 x 768), malware can see you're using <a href="https://www.makeuseof.com/tag/malware-uses-screen-resolution-avoid-detection/">an outdated version of Windows or a virtual machine</a>.</p>
+                            <h5>Mitigation techniques</h5>
+                            <p>User agent information can be hidden by browser extensions such as <a href="https://www.google.com/search?q=noscript">NoScript</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--Network info-->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Network Information</h4>
+                    <div class="ml-4">
+                        <p id="ip"><b>Public IP Address: </b></p>
+                        <p id="conSpeed"><b>Downlink speed: </b></p>
+                        <p id="conType"><b>Connection type: </b></p>
+                    </div>
+                    <div class="card bg-light text-black">
+                        <div class="card-body">
+                            <h5>Explaination</h5>
+                            <p>Cloudflare can be used to get a user's public IP address. Your public IP address is provided by your router/internet service provider and connects everyone in your local area network (household or office) to the internet. It may look something like this: <code>92.123.50.225</code>. A private IP address is used for communications between devices within your own network. It is not recognized on the internet and looks something like this: <code>192.168.1.240</code>.</p>
+                            <p>There are browser methods such as <code>navigator.connection</code> that gives websites access to this information.</p>
+                            <p>All of your online activity can be traced back to your IP address (even in private browsing, or when you delete your history). Attackers can also use reconnaissance techniques to learn more about your network (vulnerabilities, misconfigurations, nearby WiFi networks, etc.) and stage attacks for it.</p>
+                            <h5>Mitigation techniques</h5>
+                            <p>Use a VPN service. VPNs allow users to use unsecured public networks like a secure private network by encrypting all data between the remote and client device.</p>
+                            <p>Use the <a href="https://www.google.com/search?q=tor%20project">Tor browser</a>. This browser allows internet users to browse anonymously online and keep their activities hidden from websites, ISPs, and advertisers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--Location info-->
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fa fa-map" aria-hidden="true"></i>&nbsp;&nbsp;Location Information</h4>
+                    <h5>Device location</h5>
+                    <div class="ml-4">
+                        <p id="location"><span class="text-danger">Geolocation is not available.</span></p>
+                    </div>
+                    <h5>Orientation</h5>
+                    <div class="ml-4">
+                        <div id="orientation"><span class="text-danger">Cannot find device orientation.</span></div>
+                    </div>
+                    <h5>Accelerometer</h5>
+                    <div class="ml-4">
+                        <p id="aclX"><span class="text-danger">Accelerometer not found.</span></p>
+                        <p id="aclY"></p>
+                        <p id="aclZ"></p>
+                    </div>
+                    <h5>Gyroscrope</h5>
+                    <div class="ml-4">
+                        <p id="gyroX"><span class="text-danger">Accelerometer not found.</span></p>
+                        <p id="gyroY"></p>
+                        <p id="gyroZ"></p>
+                    </div>
+                    <div class="card bg-light text-black">
+                        <div class="card-body">
+                            <h5>Explaination</h5>
+                            <p>Your location and device orientation info are usually used by mapping services to find out where you are. For example, when ordering food a website may ask for your location</p>
+                            <p>Aceelerometers and gyroscopes check the velocity and position of your device in 3 directions. This is usually used to shut down your device when it falls to prevent data loss. These features are also used in mobile games and 360&deg; experiences that use motion controls.</p>
+                            <p>These features can be used by malicious actors to discover your location.</p>
+                            <h5>Mitigation techniques</h5>
+                            <p>Turn off your location on your device when you don't need it. Some programs will track your location at all times when it is turned on (like on your <a href="https://www.google.com/maps/timeline">Google Timeline</a>).</p>
+                            <p>Do not accept permissions from websites that want to use your location when it is not necessary.</p>
+                            <p>Threat actors can still triangulate your location via other techniques such as scanning nearby WiFi networks or discovering what cell networks your device are connecting to.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><i class="fa fa-question-circle" aria-hidden="true"></i>&nbsp;&nbsp;Impact of Browser Fingerprinting</h4>
+                <p>These pieces of information in themselves are not harmful. For instance, millions of people around the world use Windows 10 as their operating system. However, all of these data points together can be used to uniquely identify your device based on your hardware, settings, plugins, etc. There may be a lot of people using Windows 10, but not all of them use Firefox, have 12 different plugins, live in Arlington, VA, and use light mode. Fingerprinting is bad for privacy and the internet as everything you do can be tracked and used against you. Bad actors can use these features to identify you online. Even when you clear your history or browsing data, people you don’t know could have all of this information about your browser. It is important to mitigate the risk by installing privacy-focused extensions and programs on your device, and practice safe browsing habits.</p>
+            </div>
+        </div>
+        </div>
+        <br>
+        <footer class="footer">
+            <div class="container">
+            <b>&copy; 2021 - Steve Henry</b><span class="float-right"><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:henry.steve45@gmail.com">&nbsp;henry.steve45@gmail.com</a>
+            | <i class="fa fa-linkedin-square" aria-hidden="true"></i><a href="https://www.linkedin.com/in/steve-henry-384818146/">&nbsp;LinkedIn</a>
+            | <i class="fa fa-github-square" aria-hidden="true"></i> <a href="https://github.com/henrysteve45/">&nbsp;Github</a></span>
+            </div>
+            <br>
+        </footer>
+    </body>
+</html>
+<script src="script.js"></script>
