@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arvo&family=Open+Sans&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
+        <title>Steve Henry's Web Portfolio</title>
+		<link rel="icon" type="image/png" href="steve.jpg">
+		<style>
+			#hero {
+				background-size: cover;
+				padding: 32px 20% 32px 20%;
+				background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("bg.jpg");
+				background-attachment: fixed;
+			}
+			#table {
+				width: 92%;
+				margin: auto;
+				background-color: white;
+				padding: 16px 32px;
+				border-left: 1px solid #c7c7c7;
+				border-right: 1px solid #c7c7c7;
+			}
+			main {
+				background-color: #e0e0e0;
+			}
+			@media screen and (max-width: 768px) {
+				#table {
+					background-color: white;
+					width: 100%;
+					padding: 8px;
+					border: none;
+				}
+				main {
+					background-color: white;
+				}
+			}
+			/* Slideshow container */
+			.mySlides {
+				display:none;
+			}
+
+			.slideshow-container {
+				height: 500px;
+				position: relative;
+				margin: auto;
+				overflow: hidden;
+				border: 1px dotted #c7c7c7;
+				position: inline-block;
+				vertical-align: middle;
+			}
+
+			.controls {
+				background-color: white;
+				padding: 16px;
+				cursor: default;
+			}
+			/* Next & previous buttons */
+			.changeSlide {
+				height: 32px;
+				width: 32px;
+				border-radius: 50%;
+				border: none;
+				transition: 0.1s;
+				background-color: #d9495f;
+				color: white;
+				font-weight: bold;
+			}
+
+			.changeSlide:hover {
+				background-color: #b54052;
+			}
+
+			.changeSlide:active {
+				background-color: #b54052
+			}
+
+			/* Caption text */
+			.text {
+				color: #f2f2f2;
+				font-size: 15px;
+				padding: 8px 12px;
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+				text-align: center;
+				background-image: linear-gradient(rgba(0, 0, 0, 0), black);
+				text-shadow: 0px 0px 5px black;
+			}
+
+			/* The dots/bullets/indicators */
+			.dot {
+				cursor: default;
+				height: 16px;
+				width: 16px;
+				display: inline-block;
+				transition: color 0.1s ease;
+				color: #e0e0e0;
+			}
+
+			.active {
+				color: #d9495f;
+			}
+
+			.dot:hover {
+				color: #b54052;
+			}
+
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+			  .prev, .next,.text {font-size: 11px}
+			}
+		</style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="topnav" id="myTopnav">
+                <a href="javascript:void(0);" class="hamburger" id="hamburger" onclick="hamToggle()"><i class="fa fa-bars"></i></a>
+                <a class="nav" href="index.html"><i class="fa fa-home"></i>&nbsp;&nbsp;About Me</a>
+                <a class="nav" href="resume.html"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Resume</a>
+				<a class="nav" href="projects.html"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Projects</a>
+				<a class="nav" id="active" href="organizations.html"><i class="fa fa-building"></i>&nbsp;&nbsp;Organizations</a>
+            </nav>
+            <div id="hero">
+                <h1>Organizations</h1>
+            </div>
+            <main>
+				<section id="table">
+					<div class="slideshow-container">
+						<div class="mySlides fade">
+							<img src="img/gallery/1.png" style="width:100%" alt="Me and my fellow Urban Alliance interns at the Economic Club">
+							<div class="text">2019 Urban Alliance Economic Club Cohort</div>
+						</div>
+
+						<div class="mySlides fade">
+							<img src="img/gallery/2.png" style="width:100%" alt="Me and my fellow Accenture interns">
+							<div class="text">Me and my fellow Accenture interns</div>
+						</div>
+
+						<div class="mySlides fade">
+							<img src="img/gallery/3.png" style="width:100%">
+							<div class="text">2017 Economic Club Scholarship Recipients</div>
+						</div>
+					</div>
+					<div class="controls" style="text-align:center">
+						<button type="button" class="changeSlide" onclick="plusSlides(-1)">&#10094;</button>
+						<a onclick="currentSlide(1)" class="dot"><i class="fa fa-circle" aria-hidden="true"></i></a> 
+						<a onclick="currentSlide(2)" class="dot"><i class="fa fa-circle" aria-hidden="true"></i></a> 
+						<a onclick="currentSlide(3)" class="dot"><i class="fa fa-circle" aria-hidden="true"></i></a>  
+						<button type="button" class="changeSlide" onclick="plusSlides(1)">&#10095;</button>
+					</div>
+					<table>
+						<tr>
+							<td class="icon"><img src=img/economicclub.jpg></td>
+							<td class="desc">
+								<h4>The Economic Club of Washington, DC</h4>
+								<small>August 2017</small>
+								<p>The Economic Club provides scholarships to high school and college students in the Washington, DC area. Economic Club scholars recieve mentorships and participate in professional development workshops with industry leaders from companies such as Deloitte and Accenture.</p> 
+								<br>
+								<a class="link" href="https://www.economicclub.org/education-initiative"><i class="fa fa-external-link"></i>&nbsp;Economic Club</a><br>
+								<br>
+								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lW98Uj5EQ-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<br>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/ge.jpg></td>
+							<td class="desc">
+								<h4>Global Experiences</h4>
+								<small>January 2021 - April 2021</small>
+								<p>Global Experiences provides college students with internship experience with companies around the world. Members also get to interact with global industry leaders and learn about the impact of their career field in other countries. Thanks to this organization, I was able to have an internship with Sprwt.</p>
+								<br>
+								<a class="link" href="https://www.globalexperiences.com/"><i class="fa fa-external-link"></i>&nbsp;Global Experiences</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/urbanalliance.jpg></td>
+							<td class="desc">
+								<h4>Urban Alliance</h4>
+								<small>June 2019 - August 2019</small>
+								<p>Urban Alliance helps students in the Washington, DC area build their professional skills via internships at a variety of companies in the region and development workshops. I was able to intern at Phone2Action thanks to Urban Alliance.</p>
+								<br>
+								<a class="link" href="https://theurbanalliance.org/"><i class="fa fa-external-link"></i>&nbsp;Urban Alliance</a>
+								<br><br>
+								<a class="twitter-timeline" data-width="560" data-height="315" data-dnt="true" data-theme="dark" href="https://twitter.com/UrbanAlliance?ref_src=twsrc%5Etfw">Tweets by UrbanAlliance</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+								<br>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/onramps.jpg></td>
+							<td class="desc">
+								<h4>On-Ramp to Careers</h4>
+								<small>June 2015 - August 2017</small>
+								<p>On-Ramps inspires future technology leaders by providing internship experience to students in STEM fields. Their partnered organizations include the Department of Homeland Security and Accenture. I participated in internships at companies in the DC area thanks to On-Ramps. Currently an alumni.</p>
+								<br>
+								<a class="link" href="https://www.onrampstocareers.org/"><i class="fa fa-external-link"></i>&nbsp;On-Ramps to Careers</a>
+							</td>
+						</tr>
+					</table>
+				</section>
+            </main>
+            <footer class="footer" id="normal">
+				&copy; 2021 - Steve Henry<span style="float: right;"><a href="mailto:henry.steve45@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;henry.steve45@gmail.com</a>
+				| <a href="https://www.linkedin.com/in/steve-henry-384818146/"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+				| <a href="https://github.com/henrysteve45/"><i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;Github</a></span>
+        	</footer>
+			<footer class="footer" id="responsive" style="text-align: center;">
+				&copy; 2021 - Steve Henry<a href="mailto:henry.steve45@gmail.com">
+				<br><br> <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;henry.steve45@gmail.com</a>
+				<br> <a href="https://www.linkedin.com/in/steve-henry-384818146/"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+				<br> <a href="https://github.com/henrysteve45/"><i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;Github</a>
+        	</footer>
+        </div>
+    </body>
+	<script>
+		function hideWindow() {
+			document.getElementById("wrapper").style.opacity = 0;
+		}
+		function showWindow() {
+			document.getElementById("wrapper").style.opacity = 1;
+		}
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {
+				slideIndex = 1;
+			}    
+			if (n < 1) {
+				slideIndex = slides.length
+			}
+			for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";  
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";  
+			dots[slideIndex-1].className += " active";
+		}
+		</script>
+</html>

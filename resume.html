@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arvo&family=Open+Sans&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
+        <title>Steve Henry's Web Portfolio</title>
+		<link rel="icon" type="image/png" href="steve.jpg">
+		<style>
+			#hero {
+				background-size: cover;
+				padding: 32px 20% 32px 20%;
+				background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("bg.jpg");
+				background-attachment: fixed;
+			}
+			#table {
+				width: 92%;
+				margin: auto;
+				background-color: white;
+				padding: 16px 32px;
+				border-left: 1px solid #c7c7c7;
+				border-right: 1px solid #c7c7c7;
+			}
+			main {
+				background-color: #e0e0e0;
+			}
+			@media screen and (max-width: 768px) {
+				#table {
+					background-color: white;
+					width: 100%;
+					padding: 8px;
+					border: none;
+				}
+				main {
+					background-color: white;
+				}
+			}
+		</style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="topnav" id="myTopnav">
+                <a href="javascript:void(0);" class="hamburger" id="hamburger" onclick="hamToggle()"><i class="fa fa-bars"></i></a>
+                <a class="nav" href="index.html"><i class="fa fa-home"></i>&nbsp;&nbsp;About Me</a>
+                <a class="nav" id="active" href="resume.html"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Resume</a>
+				<a class="nav" href="projects.html"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Projects</a>
+				<a class="nav" href="organizations.html"><i class="fa fa-building"></i>&nbsp;&nbsp;Organizations</a>
+            </nav>
+            <div id="hero">
+                <h1>Resume</h1>
+            </div>
+            <main>
+				<section id="table">
+					<h2>Education</h2>
+					<table>
+						<tr>
+							<td class="icon"><img src=img/marymount.jpeg></td>
+							<td class="desc">
+								<h4>Marymount University</h4>
+								<small>August 2017 - May 2021<br>Arlington, VA</small>
+								<p>Bachelor of Science Information Technology – Cybersecurity</p>
+								<p>Designated as a Center of Academic Excellence in Cyber Defense Education (CAE-CDE) by NSA and DHS </p>
+								<p>Cumulative GPA: 3.6</p>
+							</td>
+						</tr>
+					</table>
+					<h2>Skills</h2>
+						<h3>Cybersecurity</h3>
+							<ul>
+								<li>Firm understanding of fundamental cybersecurity concepts including cryptography, vulnerability and risk assessments, business continuity, threat actors, cloud computing technology, access control and DevSecOps.</li>
+								<li>Hands-on experience with industry standard tools such as Wireshark and Nmap.</li>
+								<li>Additionally, I understand security stand industry frameworks and standards such as NIST, IEEE, and OWASP Top 10.</li>
+								<li>Implementation of web security protocols through personal projects and internship experience.</li>
+								<li>Currently preparing for the CompTIA Security+ SY0-501 certification exam.</li>
+							</ul>
+						<h3>Frontend Web Development</h3>
+							<ul>
+								<li>Development languages and frameworks: HTML, CSS, JavaScript, jQuery, Bootstrap, Leaflet.js and React.</li>
+								<li>Software and tools: Visual Studio, Amazon Web Services, WinSCP, Brackets and GitHub.</li>
+								<li>Experience managing external APIs and JSON files.</li>
+							</ul>
+						<h3>Other IT-Focused Skills</h3>
+							<ul>
+								<li>Programming using Python and Java.</li>
+								<li>Firsthand experience with Agile development methodologies.</li>
+								<li>Software testing methods such as white/black box tests, boundary tests, etc.</li>
+								<li>Experience with database technology such as writing SQL queries, relational databases, using MySQL.</li>
+								<li>Networking fundamentals including the OSI stack, TCP/IP and configuring networking devices.</li>
+								<li>Navigating command line interface and using network security tools on Windows and UNIX systems.</li>
+							</ul>
+						<h3>Soft Skills</h3>
+							<ul>
+								<li>Taking initiative</li>
+								<li>Adapting to new situations</li>
+								<li>Effective communication through different communications</li>
+								<li>Time management</li>
+								<li>Leadership</li>
+							</ul>
+					<h2>Work Experience</h2>
+					<table>
+						<tr>
+							<td class="icon"><img src=img/sprwt.png></td>
+							<td class="desc">
+								<h4>Sprwt</h4>
+								<small>Cybersecurity Intern<br>January 2021 - April 2021<br>New York, NY</small>
+								<p>Conducted vulnerability assessments on the Sprwt website, managed web security protocols, and created business documents for Sprwt clients.</p>
+								<p>Lead an initiative to protect Sprwt's website from threat actors by identifying vulnerabilities/compliance errors and providing suggestions on how to solve security issues.</p>
+								<a class="link" href="https://drive.google.com/file/d/1b-Eok0ZICgM-mxbbeWxucmGwp7hu_H8p/view?usp=sharing"><i class="fa fa-external-link" aria-hidden="true"></i>&nbsp;View report</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/phone2action.jpg></td>
+							<td class="desc">
+								<h4>Phone2Action</h4>
+								<small>Summer Tech Fellow<br>May 2019 - July 2019<br>Arlington, VA</small>
+								<p>Created new customizable online campaign templates for clients that allows advocates to contact their government officials via email, phone, text, or social media.</p>
+								<p>Successfully increased the frequency partners used Phone2Action’s SaaS platform and expanded the reach of their advocates.</p>
+								<a class="link" href="https://docs.google.com/presentation/d/1QkaHQES6XNaFHobI-yiyBrc6GtpW-wST7osOg2vrgnY/edit?usp=sharing"><i class="fa fa-external-link" aria-hidden="true"></i>&nbsp;View presentation</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/irs.jpg></td>
+							<td class="desc">
+								<h4>Internal Revenue Service</h4>
+								<small>Software Testing Intern<br>June 2018 - August 2018<br>Washington, DC</small>
+								<p>Performed black box software testing on a computer program called CCMacros used by IRS employees.</p>
+								<p>Ensured application security best practices were used to guarantee a reliable program for IRS employees.</p>
+								<p>Migrated servers and computers used by Chief Counsel office to IRS.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/uncf.png></td>
+							<td class="desc">
+								<h4>United Negro College Fund</h4>
+								<small>Graphic Design &amp; Web Design Intern<br>June 2017 - August 2017<br>Washington, DC</small>
+								<p>Created various graphics and designs for the company and their fundraising events.</p>
+								<p>Developed a mobile website for UNCF’s Empower Me Tour program.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/dhs.jpg></td>
+							<td class="desc">
+								<h4>U.S. Department of Homeland Security</h4>
+								<small>Cybersecurity Intern<br>June 2016 - August 2016<br>Washington, DC</small>
+								<p>Gained experience and knowledge in current cyber security topics and the essential skills of the cyber security field by shadowing employees.</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/accenture.jpg></td>
+							<td class="desc">
+								<h4>Accenture</h4>
+								<small>Cybersecurity Intern<br>June 2015 - August 2015<br>Arlington, VA</small>
+								<p>Assisted with development of a mobile application for District of Columbia Public Schools that allows parents to assist their children with their assignments.</p>
+								<p>Developed a mobile website for the application.</p>
+							</td>
+						</tr>
+					</table>
+					<h2>Honors and Awards</h2>
+					<h4>Dean's List</h4>
+						<p>Successfully made the Dean’s List for each year of my college career by maintaining a GPA above a 3.5.</p>
+					<h4>David M. Rubenstein/Economic Club of Washington, D.C. Scholarship</h4>
+						<p>Scholarship recipient and scholar of the Economic Club; 4 year scholarship.</p>
+					<h4>Marymount Presidential Scholarship</h4>
+						<p>Highest scholarship offered to Marymount students; earned from my academic excellence; 4 year scholarship.</p>
+					<h4>Masonic Foundation Scholarship</h4>
+						<p>Scholarship recipient; 4 year scholarship.</p>
+					<div id="nextContainer">
+						<a class="button" href="projects.html">View my projects <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					</div>
+				</section>
+            </main>
+            <footer class="footer" id="normal">
+				&copy; 2021 - Steve Henry<span style="float: right;"><a href="mailto:henry.steve45@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;henry.steve45@gmail.com</a>
+				| <a href="https://www.linkedin.com/in/steve-henry-384818146/"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+				| <a href="https://github.com/henrysteve45/"><i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;Github</a></span>
+        	</footer>
+			<footer class="footer" id="responsive" style="text-align: center;">
+				&copy; 2021 - Steve Henry<a href="mailto:henry.steve45@gmail.com">
+				<br><br> <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;henry.steve45@gmail.com</a>
+				<br> <a href="https://www.linkedin.com/in/steve-henry-384818146/"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+				<br> <a href="https://github.com/henrysteve45/"><i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;Github</a>
+        	</footer>
+        </div>
+    </body>
+</html>

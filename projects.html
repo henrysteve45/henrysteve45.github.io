@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arvo&family=Open+Sans&display=swap" rel="stylesheet">
+        <script src="script.js"></script>
+        <title>Steve Henry's Web Portfolio</title>
+		<link rel="icon" type="image/png" href="steve.jpg">
+		<style>
+			#hero {
+				background-size: cover;
+				padding: 32px 20% 32px 20%;
+				background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("bg.jpg");
+				background-attachment: fixed;
+			}
+			#table {
+				width: 92%;
+				margin: auto;
+				background-color: white;
+				padding: 16px 32px;
+				border-left: 1px solid #c7c7c7;
+				border-right: 1px solid #c7c7c7;
+			}
+			main {
+				background-color: #e0e0e0;
+			}
+			@media screen and (max-width: 768px) {
+				#table {
+					background-color: white;
+					width: 100%;
+					padding: 8px;
+					border: none;
+				}
+				main {
+					background-color: white;
+				}
+			}
+		</style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <nav class="topnav" id="myTopnav">
+                <a href="javascript:void(0);" class="hamburger" id="hamburger" onclick="hamToggle()"><i class="fa fa-bars"></i></a>
+                <a class="nav" href="index.html"><i class="fa fa-home"></i>&nbsp;&nbsp;About Me</a>
+                <a class="nav" href="resume.html"><i class="fa fa-file-text"></i>&nbsp;&nbsp;Resume</a>
+				<a class="nav" id="active" href="projects.html"><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Projects</a>
+				<a class="nav" href="organizations.html"><i class="fa fa-building"></i>&nbsp;&nbsp;Organizations</a>
+            </nav>
+            <div id="hero">
+                <h1>Projects</h1>
+            </div>
+            <main>
+				<section id="table">
+					<table>
+						<tr>
+							<td class="icon"><img src=img/liteeta.png></td>
+							<td class="desc">
+								<h4>LiteETA</h4>
+								<p>A real-time bus arrival web application that shows Washington, DC residents when the next bus will come at their desired stop, along with other data such as route data and schedules. Users can enter any WMATA Metrobus route or bus stop ID to get live information. I built this to improve upon shortcomings my family and I have with WMATA’s official bus application. The site utilizes the WMATA API, Leaflet.js and Mapbox.</p> 
+								<br>
+								<figure>
+									<a href="img/liteetaScreenshot.png"><img class="projectImg" src="img/liteetaScreenshot.png" alt="Screenshot of LiteETA displaying bus arrival information for a stop."></a>
+									<figcaption>Screenshot of LiteETA displaying bus arrival information for a stop.</figcaption>
+								</figure>
+								<br>
+								<a class="link" href="http://35.mutechchallenge.com/"><i class="fa fa-external-link"></i>&nbsp;Visit site</a><br>
+								<a class="link" href="http://35.mutechchallenge.com/"><i class="fa fa-github-square"></i>&nbsp;Source code</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/fingerprint.png></td>
+							<td class="desc">
+								<h4>Browser Fingerprinting</h4>
+								<p>A web application that demonstrates the ways browsers can generate a fingerprint of users based on browser settings, JavaScript properties, device hardware, and more. The site also provides explanations on how these methods work to a general audience and mitigation techniques. Bootstrap was used for visual styling and responsive design.</p>
+								<br>
+								<a class="link" href="https://henrysteve45.github.io/browserFingerprinting/index.html"><i class="fa fa-external-link"></i>&nbsp;Visit site</a><br>
+								<a class="link" href="https://github.com/henrysteve45/webVulnerabilities"><i class="fa fa-github-square"></i>&nbsp;Source code</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/firefox.png></td>
+							<td class="desc">
+								<h4>Firefox DNS-over-HTTPS Presentation</h4>
+								<p>For my corporate cybersecurity course, I created a presentation on DNS-over-HTTPS, at the time a new feature in the Firefox browser which sends DNS resolutions over the encrypted HTTPS protocol. The presentation showcases how it works and demonstrates the encryption via Wireshark packet captures.</p>
+								<br>
+								<a class="link" href="https://drive.google.com/file/d/1DaoVhrsSqNJf9x262cN2oIAfq6IYXfng/view?usp=sharing"><i class="fa fa-external-link"></i>&nbsp;View presentation</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="icon"><img src=img/carboncalc.png></td>
+							<td class="desc">
+								<h4>Carbon Calc</h4>
+								<p>Created a web application called Carbon Calc for the 2019 Marymount Tech Challenge that tied for 1st place. It is an environmental education website featuring a carbon footprint calculator. It is aimed to each general audiences about how their daily habits influence the environment and ways they can mitigate their harmful environmental impacts.</p>
+								<br>
+								<figure>
+									<a href="img/carbonCalcScreenshot.png"><img class="projectImg" src="img/carbonCalcScreenshot.png" alt="Screenshot of the Carbon Calc website, listing some ways users can reduce their carbon footprint."></a>
+									<figcaption>Screenshot of the Carbon Calc website, listing some ways users can reduce their carbon footprint.</figcaption>
+								</figure>
+								<br>
+								<a class="link" href="https://github.com/henrysteve45/CarbonCalc/"><i class="fa fa-github-square"></i>&nbsp;Source code</a>
+								
+							</td>
+						</tr>
+					</table>
+					<div id="nextContainer">
+						<a class="button" href="organizations.html">View the organizations I'm in <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					</div>
+				</section>
+            </main>
+            <footer class="footer" id="normal">
+				&copy; 2021 - Steve Henry<span style="float: right;"><a href="mailto:henry.steve45@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;henry.steve45@gmail.com</a>
+				| <a href="https://www.linkedin.com/in/steve-henry-384818146/"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+				| <a href="https://github.com/henrysteve45/"><i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;Github</a></span>
+        	</footer>
+			<footer class="footer" id="responsive" style="text-align: center;">
+				&copy; 2021 - Steve Henry<a href="mailto:henry.steve45@gmail.com">
+				<br><br> <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;henry.steve45@gmail.com</a>
+				<br> <a href="https://www.linkedin.com/in/steve-henry-384818146/"><i class="fa fa-linkedin-square" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+				<br> <a href="https://github.com/henrysteve45/"><i class="fa fa-github-square" aria-hidden="true"></i>&nbsp;Github</a>
+        	</footer>
+        </div>
+    </body>
+</html>
