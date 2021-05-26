@@ -135,23 +135,31 @@ figcaption {
 		padding: 24px 10% 24px 10%;
 		font-size: 16px;
 		color: white;
+		text-align: center;
 	}
-	footer a {
+
+	footer .fa {
+		padding: 12px;
+		font-size: 26px;
+		text-align: center;
+		text-decoration: none;
 		text-decoration: none;
 		color: white;
+		margin: 16px 4px 0px;
 	}
-	footer a:hover {
-		color: var(--secondary);
-		transition: 0.1s;
+	#linkedin {
+		background: #007bb5;
 	}
-/*footer responsive*/
-	footer#responsive {
-		display: none;
+	#email {
+		background: var(--secondary);
 	}
-	footer#normal {
-		display: block;
-		}
-
+	#github {
+		background: #6f42c1;
+	}
+	#email:hover,#github:hover,#linkedin:hover {
+		background: white;
+		color: black;
+	}
 /*table*/
 	td.icon {
 		width: 128px;
@@ -235,7 +243,6 @@ td img.projectImg {
 		border: none;
 		transition: background-color .1s;
 	}
-
 	.button:hover {
 		background-color: #b54052;
 	}
@@ -330,12 +337,6 @@ a.link:hover {
     #hero {
         padding: 32px 10% 32px 10%;
     }
-	footer#responsive {
-	display: block;
-	}
-	footer#normal {
-	display: none;
-	}
 	ul li {
 		text-align: left;
 	}
