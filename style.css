@@ -62,7 +62,7 @@ nav a:hover:not(#active) {
 		color: white;
 		text-align: center;
 		text-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
-		font-family: 'Arvo', serif;
+		font-family: 'Zilla Slab', serif;
 	}
 
 	#hero p {
@@ -81,7 +81,7 @@ nav a:hover:not(#active) {
 
 h2 {
     color: white;
-    font-family: 'Arvo', serif;
+    font-family: 'Zilla Slab', serif;
 	padding: 8px;
 	font-size: 32px;
 	margin-top: 32px;
@@ -95,7 +95,7 @@ h3 {
 }
 
 .cardText h3 {
-    font-family: 'Arvo', serif;
+    font-family: 'Zilla Slab', serif;
 	font-size: 32px;
 	margin: 16px 0px 16px 0px;
 }
