@@ -36,12 +36,14 @@ nav {
     padding-right: 10%;
     padding-top: 4px;
     top: 0;
+	position: fixed;
+	width: 100%;
 }
 
 nav a {
     float: left;
     display: block;
-    color: #2a2a2a;
+    color: black;
     font-weight: bold;
     text-align: center;
     padding: 14px 16px;
@@ -58,6 +60,9 @@ nav a:hover:not(#active) {
     transition: 0.1s ease-in-out;
 }
 /*hero*/
+	#hero {
+		margin-top: 56px;
+	}
 	#hero h1 {
 		color: white;
 		text-align: center;
@@ -315,7 +320,8 @@ a.link:hover {
         padding-right: 0%;
     }
     nav.responsive {
-        position: relative;
+        position: fixed;
+		width: 100%;
     }
     nav.responsive .icon {
         position: absolute;
