@@ -30,7 +30,8 @@ nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: white;
+    background-color: rgb(0, 0, 0, 0.9);
+    backdrop-filter: blur(16px);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
     padding-left: 10%;
     padding-right: 10%;
@@ -44,7 +45,7 @@ nav {
 nav a {
     float: left;
     display: block;
-    color: black;
+    color: rgba(255, 255, 255, 0.6);
     font-weight: bold;
     text-align: center;
     padding: 14px 16px;
@@ -52,18 +53,19 @@ nav a {
 }
 nav a#active {
     border-bottom: 4px solid var(--primary);
+    color: white;
     font-weight: bold;
-    color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 nav a:hover:not(#active) {
-    color: var(--primary);
+    color: white;
     transition: 0.1s ease-in-out;
 }
 /*hero*/
-	#hero {
-		margin-top: 56px;
-	}
+    .navSpace {
+        height: 54px;
+    }
 	#hero h1 {
 		color: white;
 		text-align: center;
@@ -80,6 +82,7 @@ nav a:hover:not(#active) {
 	}
 	#steve {
 		border-radius: 50%;
+        margin-top: 16px;
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
@@ -138,7 +141,7 @@ figcaption {
 
 /*footer*/
 	footer {
-		background-color: black;
+		background-color: #191919;
 		padding: 24px 10% 24px 10%;
 		font-size: 16px;
 		color: white;
