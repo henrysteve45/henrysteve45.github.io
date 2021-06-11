@@ -8,3 +8,18 @@ function hamToggle() {
         document.getElementsByID("hamburger").innerHTML = "<i class='fa fa-bars'></i>";
     }
 }
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+    if (window.pageYOffset > 98) {
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("myTopnav").style.top = "0";
+        } else {
+            document.getElementById("myTopnav").style.top = "-64px";
+        }
+    } else {
+        document.getElementById("myTopnav").style.top = "0";
+    }
+    prevScrollpos = currentScrollPos;
+}
