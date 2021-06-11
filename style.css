@@ -30,7 +30,7 @@ nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(0, 0, 0, 0.9);
+    background-color: rgb(0, 0, 0, 0.8);
     backdrop-filter: blur(16px);
     box-shadow: 0 0 8px rgba(0, 0, 0, 1);
     padding-left: 10%;
@@ -42,7 +42,12 @@ nav {
 	width: 100%;
     transition: top 0.3s;
 }
-
+/*disable transparency+blur on Firefox*/
+@-moz-document url-prefix() {
+    nav {
+        background-color: #191919;
+    }
+}
 nav a {
     float: left;
     display: block;
@@ -325,6 +330,7 @@ a.link:hover {
     nav {
         padding-left: 0%;
         padding-right: 0%;
+        background-color: #121212;
     }
     nav.responsive {
         position: fixed;

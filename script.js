@@ -12,7 +12,7 @@ function hamToggle() {
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
     var currentScrollPos = window.pageYOffset;
-    if (window.pageYOffset > 98 && document.getElementById("myTopnav").className == "topnav") {
+    if (window.pageYOffset > 98 && document.getElementById("myTopnav").className == "topnav" && window.innerWidth <= 800) {
         if (prevScrollpos > currentScrollPos) {
             document.getElementById("myTopnav").style.top = "0";
         } else {
