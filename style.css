@@ -66,7 +66,6 @@ nav a:hover:not(#active) {
     color: white;
     background: rgba(255, 255, 255, 0.1);
     border-bottom: 4px solid rgba(255, 255, 255, 0);
-    transition: color 0.1s ease-in-out;
 }
 /*hero*/
     .navSpace {
@@ -151,10 +150,11 @@ figcaption {
 		padding: 24px 10% 24px 10%;
 		font-size: 16px;
 		color: white;
-		text-align: center;
 		border-top: solid 4px var(--secondary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 	}
-
 	footer .fa {
 		padding: 12px;
 		font-size: 26px;
@@ -162,7 +162,7 @@ figcaption {
 		text-decoration: none;
 		text-decoration: none;
 		color: white;
-		margin: 16px 4px 0px;
+		margin: 0px 8px;
 	}
 	#linkedin {
 		background: #007bb5;
@@ -206,9 +206,9 @@ figcaption {
 		vertical-align: top;
 	}
 
-td img.projectImg {
-	width: 512px;
-}
+    td img.projectImg {
+        width: 512px;
+    }
 	tr:last-of-type td {
 		border-bottom: none;
 	}
@@ -264,18 +264,25 @@ td img.projectImg {
 	.button:hover {
 		background-color: #b54052;
 	}
-a.link{
-	color: slateblue;
-	text-decoration: none;
-	border-bottom: 2px dotted;
-}
+    a.link{
+        color: slateblue;
+        text-decoration: none;
+        border-bottom: 2px dotted;
+    }
 
-a.link:hover {
-	color: var(--primary);
-}
+    a.link:hover {
+        color: var(--primary);
+    }
 /* Responsive*/
 @media screen and (max-width: 800px) {
-	p, li {
+    footer .fa {
+        margin-top: 16px;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    p, li {
 		margin-right: 16px;
 	}
 	
