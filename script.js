@@ -11,8 +11,6 @@ function hamToggle() {
 
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-    //parallax
-    document.getElementById("hero").style.backgroundPosition = "0 " + window.pageYOffset/3 + "%";
     //navbar hide when scroll up on mobile
     var currentScrollPos = window.pageYOffset;
     if (window.pageYOffset > 98 && document.getElementById("myTopnav").className == "topnav" && window.innerWidth <= 800) {
