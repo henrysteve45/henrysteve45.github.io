@@ -123,7 +123,7 @@ function stringToHash(string) {
 }
 
 hashVal = stringToHash(dataURL);
- $("#canvas").append("<p>Simple canvas data hash value (collisions may be possible): "+ hashVal +"</p>");
+ $("#canvas").append("<p>Simple canvas data hash value (Very basic hash algorhitm used just as an example; expect collisions): "+ hashVal +"</p>");
 
 /*Battery info*/
     try {
