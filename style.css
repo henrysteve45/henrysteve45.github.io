@@ -156,13 +156,18 @@ figcaption {
         align-items: center;
 	}
 	footer .fa {
-		padding: 12px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
 		font-size: 26px;
 		text-align: center;
 		text-decoration: none;
 		text-decoration: none;
-		color: rgba(255, 255, 255, 0.6);
-		margin: 0px 8px;
+		color: white;
+		margin: 0px 4px;
         background: rgba(255, 255, 255, 0.1);
         transition: 0.1s;
 	}
@@ -171,6 +176,9 @@ figcaption {
 		color: white;
 	}
 /*table*/
+    table {
+        margin-right: 16px;
+    }
 	td.icon {
 		width: 128px;
 		vertical-align:top;
@@ -210,14 +218,8 @@ figcaption {
 	}
 /*cards*/
 	.column {
-		float: left;
 		width: 50%;
 		padding: 32px 0px 32px 0px;
-	}
-	.row:after {
-		content: "";
-		display: table;
-		clear: both;
 	}
 
 	.cardImg {
@@ -227,14 +229,15 @@ figcaption {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-
 	.row {
 		box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
         border: solid 4px black;
 		margin: 32px 0px;
 		padding: 32px;
 		background-color: white;
+        display: flex;
 	}
+
 	a.hamburger {
 	  	display: none;
 	}
@@ -274,10 +277,6 @@ figcaption {
         flex-direction: column;
         align-items: center;
     }
-    p, li {
-		margin-right: 16px;
-	}
-	
 	h2 {
 		margin-right: 16px;
 	}
@@ -314,7 +313,12 @@ figcaption {
 		margin: 16px 0px 16px 0px;
 		padding: 16px;
 		text-align: center;
+        flex-direction: column;
 	}
+    .reverseCard {
+        display: flex;
+        flex-direction: column-reverse;
+    }
     nav a:not(:first-child) {display: none;}
     a.hamburger {
         float: left;
