@@ -192,6 +192,8 @@ figcaption {
 	td small {
 		color: #717171;
 		line-height: 1.5;
+        display: flex;
+        padding-bottom: 8px;
 	}
 	td h4 {
 		margin: 0;
@@ -280,6 +282,9 @@ figcaption {
 	h2 {
 		margin-right: 16px;
 	}
+    p {
+        font-size: 14px;
+    }
 	td img.projectImg, figcaption, figure {
 		width: 90%;
 	}
