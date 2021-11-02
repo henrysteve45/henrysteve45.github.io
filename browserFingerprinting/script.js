@@ -120,6 +120,7 @@ function stringToHash(string) {
         hash |= 0; //convert to 32bit int
     }
     return Math.abs(hash);
+    
 }
 
 hashVal = stringToHash(dataURL);
