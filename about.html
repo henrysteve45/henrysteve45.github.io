@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/09afb54cdb.js" crossorigin="anonymous"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/bevacqua/dragula/dist/dragula.min.js"></script>
+		<script defer type="text/javascript" src="scripts/input.js"></script>
+		<script defer type="text/javascript" src="scripts/index.js"></script>
+		<script defer type="text/javascript" src="scripts/favorites.js"></script>
+    <link rel="icon" type="image/png" href="/images/logo.png">
+		<title>About | LiteETA</title>
+	</head>
+	<body>
+    <div id="toast-container"></div>
+		<div class="top-nav">
+			<div class="logo-container"><a title="LiteETA" href="index.html"><img src="/images/logo.png" width="32px" height="32px"></a></div>
+			<div class="search-container">
+				<form action="#" onsubmit="updateInput(document.getElementById('user-input-field').value); return false">
+					<div class="searchbar">
+						<input type="text" autocomplete="off" maxlength="7" id="user-input-field" class="user-input-field" placeholder="Bus route or stop ID">
+						<button class="searchbar-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="wrapper">
+      <br>
+      <button class="regular-button" onclick="window.location.href='settings.html'"><i class="fa-solid fa-chevron-left"></i>Back to Settings</button>
+      <h2>About LiteETA</h2>
+      <section class="about">
+        <h3>What is LiteETA?</h3>
+        <p>LiteETA is a simple, lightweight, and fast real-time bus tracker for the Washington Metropolitan Area Transit Authority's (WMATA) Metrobus service. It displays information about Washington, DC Metrobus routes and schedules in a clean, accessible format.</p>
+        <h3>Why did you make this?</h3>
+        <p>The official WMATA BusETA site exists <a class="hyperlink" href="https://buseta.wmata.com/">here</a>. I made this site to improve on some of the shortcomings my friends and I experience on the official product. This includes:</p>
+        <ul class="regular-list">
+          <li>Ability to add and remove favorites</li>
+          <li>Simple and easy to use interface</li>
+          <li>Responsive design for mobile</li>
+        </ul>
+        <p>I sought to fix these problems by creating my own version of the web application. My goal was to demonstrate my programming skills and create something useful to me and my family.</p>
+        <h3>Credits</h3>
+        <p>Bus time information comes from <a class="hyperlink" href="https://developer.wmata.com/">WMATA</a> via their real-time bus arrivals API.</p>
+        <p>Bus route and stop information from <a class="hyperlink" href="https://www.wmata.com/schedules/">WMATA</a>.</p>
+        <p>GUI icons are from <a class="hyperlink" href="https://fontawesome.com/">Font Awesome</a>.</p>
+        <p>Fonts are from <a class="hyperlink" href="https://fonts.google.com/">Google Fonts</a>.</p>
+      </section>
+      <h2>Contact</h2>
+      <section class="contact">
+        <div><a class="hyperlink" href="mailto:henry.steve45@gmail.com"><i class="fa-solid fa-envelope"></i></a><small>Email</small></div>
+        <div><a class="hyperlink" href="https://www.linkedin.com/in/steve-h-384818146/"><i class="fa-brands fa-linkedin"></i></a><small>LinkedIn</small></div>
+        <div><a class="hyperlink" href="https://github.com/henrysteve45/"><i class="fa-brands fa-square-github"></i></a><small>GitHub</small></div>
+      </section>
+      <span class="copyright-text">&copy; 2023 - Steve Henry</span>
+		</div>
+		<div class="bottom-nav">
+			<a href="index.html" class="bottom-nav-button"><i class="fa-solid fa-heart"></i><small>Favorites</small></a>
+			<a href="buses.html" class="bottom-nav-button"><i class="fa-solid fa-bus-simple"></i><small>Buses</small></a>
+			<a href="https://www.wmata.com/schedules/maps/upload/0_WMA_MAG_DC_21x34_200525.pdf" class="bottom-nav-button"><i class="fa-solid fa-map"></i><small>Map</small></a>
+			<a href="settings.html" class="bottom-nav-button active-button"><i class="fa-solid fa-gear"></i><small>Settings</small></a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/09afb54cdb.js" crossorigin="anonymous"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/bevacqua/dragula/dist/dragula.min.js"></script>
+		<script defer type="text/javascript" src="scripts/input.js"></script>
+		<script defer type="text/javascript" src="scripts/index.js"></script>
+		<script defer type="text/javascript" src="scripts/favorites.js"></script>
+		<script defer type="text/javascript" src="scripts/buses.js"></script>
+    <link rel="icon" type="image/png" href="/images/logo.png">
+		<title>Find Buses | LiteETA</title>
+	</head>
+	<body>
+    <div id="toast-container"></div>
+		<div class="top-nav">
+			<div class="logo-container"><a title="LiteETA" href="index.html"><img src="/images/logo.png" width="32px" height="32px"></a></div>
+			<div class="search-container">
+				<form action="#" onsubmit="updateInput(document.getElementById('user-input-field').value); return false">
+					<div class="searchbar">
+						<input type="text" autocomplete="off" maxlength="7" id="user-input-field" class="user-input-field" placeholder="Bus route or stop ID">
+						<button class="searchbar-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="wrapper">
+			<div id="top-area">
+        <h1 id="title-text">Please wait...</h1>
+        <span id="title-subtext"></span>
+        <div id="top-area-buttons-container"></div>
+        </div>
+        <div id="time-table-body">
+      </div>
+    </div>
+		<div class="bottom-nav">
+			<a href="index.html" class="bottom-nav-button"><i class="fa-solid fa-heart"></i><small>Favorites</small></a>
+			<a href="buses.html" class="bottom-nav-button active-button"><i class="fa-solid fa-bus-simple"></i><small>Buses</small></a>
+			<a href="https://www.wmata.com/schedules/maps/upload/0_WMA_MAG_DC_21x34_200525.pdf" class="bottom-nav-button"><i class="fa-solid fa-map"></i><small>Map</small></a>
+			<a href="settings.html"  class="bottom-nav-button"><i class="fa-solid fa-gear"></i><small>Settings</small></a>
+		</div>
+	</body>
+</html>
