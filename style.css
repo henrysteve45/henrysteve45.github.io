@@ -37,6 +37,10 @@ html, body {
   font-size: 16px;
   background: var(--background);
   color: var(--font);
+}
+
+body.favorites {
+  /* Prevent pull down to refresh on mobile */
   overscroll-behavior-y: contain;
 }
 
