@@ -1,7 +1,3 @@
-function searchSubmit() {
-  console.log(`submitted search`);
-}
-
 // Current route or stop ID
 function updateInput(input) {
   input = input.toString().toUpperCase();
@@ -13,8 +9,6 @@ function updateInput(input) {
   }
   if (valid) {
     localStorage.setItem(`input`, input);
-    message = `Current input is now ${findInput()}`;
-    console.log(message);
     window.location.href = "/buses.html";
   } else {
     createToast(`"${input}" is not a valid input.`, toastType.ERROR);

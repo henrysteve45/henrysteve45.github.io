@@ -133,7 +133,6 @@ function initFavorites() {
       // Set pointer-events to none on all list items to prevent clicks
       favoriteObjectsInOrder.forEach(stop => {
         document.getElementById(stop.stopId).style.pointerEvents = 'none';
-        console.log(stop.stopId, ` pointer-events: none;`);
       });
     }).on('dragend', function() {
       // Update favorites list structure after a drop
@@ -143,11 +142,9 @@ function initFavorites() {
         stopId: parseInt(item.id),
         stopName: item.querySelector('.stop-name').textContent
       }));
-      console.log(updateAllStops(favoriteObjectsInOrder));
       // Set pointer-events to auto on all list items
       favoriteObjectsInOrder.forEach(stop => {
         document.getElementById(stop.stopId).style.pointerEvents = 'auto';
-        console.log(stop.stopId, ` pointer-events: auto;`);
       });
     });
     

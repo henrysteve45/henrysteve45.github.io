@@ -42,8 +42,6 @@ function createToast(message, type) {
   toast.textContent = message;
   container.appendChild(toast);
 
-  console.log(`Created toast: ${message} of type ${type}`);
-
   // Show the toast message for 3 seconds and then remove it
   setTimeout(() => {
     toast.classList.add("show");
