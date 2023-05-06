@@ -4,7 +4,7 @@ function searchSubmit() {
 
 // Current route or stop ID
 function updateInput(input) {
-  input.toString().toUpperCase();
+  input = input.toString().toUpperCase();
   let valid;
   if (input.length <= 3) {
     valid = isValidInput(input, inputType.ROUTE);
