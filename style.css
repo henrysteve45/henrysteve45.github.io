@@ -39,11 +39,6 @@ html, body {
   color: var(--font);
 }
 
-body.favorites {
-  /* Prevent pull down to refresh on mobile */
-  overscroll-behavior-y: contain;
-}
-
 div#top-area-buttons-container {
   display: flex;
   justify-content: center;
