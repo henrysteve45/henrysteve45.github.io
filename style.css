@@ -25,20 +25,6 @@
   --icon-size-small: 1.25rem;
 }
 
-[data-theme="light"] {
-  --background: #ebe8e8;
-  --background2: #f3f2f2;
-  --background3: #fff;
-  --border-top: #23242b;
-  --border: #e1dddd;
-  --highlight: #ffffff;
-  --time-font: var(--font);
-
-  --font: #23242b;
-  --small-font: #69686e;
-  --shadow: rgba(0, 0, 0, 0.5);
-}
-
 /* Globals */
 *:focus {
   outline: none;

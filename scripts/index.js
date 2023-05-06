@@ -55,35 +55,3 @@ function createToast(message, type) {
     }, 3000);
   }, 0);
 }
-
-// Color scheme toggle
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'light');
-    localStorage.setItem('theme', 'light');
-  }
-}
-
-try {
-  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-  toggleSwitch.addEventListener('change', switchTheme, false);
-  if (localStorage.getItem('theme') === 'dark' || localStorage.getItem('theme') === null) {
-    toggleSwitch.checked = true;
-  }
-} catch (error) {
-  console.log(error);
-}
-
-function setTheme() {
-  const currentTheme = localStorage.getItem('theme');
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  try {
-    toggleSwitch.checked = (currentTheme === 'dark');
-  } catch (error) {
-    return false;
-  }
-}
-setTheme();
