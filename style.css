@@ -524,56 +524,6 @@ button#favorite-button:active, #remove-favorite-button:active {
     cursor: pointer;
   }
 }
-.nested li:not(:last-child), #favorite-list li:not(:last-child) {
-  border-bottom: 1px solid var(--border);
-}
-ul, #stop-list {
-  list-style-type: none;
-  line-height: 3rem;
-  user-select: none;
-  /* text-indent: 1rem; */
-}
-#stop-list {
-  margin: 0;
-  padding: 0;
-}
-/* Style the caret/arrow */
-.caret {
-  cursor: pointer;
-  user-select: none;
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  transition: var(--transition-speed);
-}
-@media(hover: hover) and (pointer: fine) {
-  .caret:hover {
-    color: var(--primary);
-  }
-}
-/* Create the caret/arrow with a unicode, and style it */
-.caret::before {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f0da";
-  color: var(--primary);
-  display: inline-block;
-  margin-right: 6px;
-  transition: var(--transition-speed);
-}
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.caret-down::before {
-  transform: rotate(90deg);
-}
-/* Hide the nested list */
-.nested {
-  display: none;
-}
-/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-.active {
-  display: block;
-}
 
 /* LOAD */
 #load-overlay {
