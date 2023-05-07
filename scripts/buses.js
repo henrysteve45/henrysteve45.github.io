@@ -84,17 +84,17 @@ async function lookupInput(input) {
   let response;
   try {
     response = await fetch('https://t4i9xvc6y9.execute-api.us-east-1.amazonaws.com/default/wmata', {
-      method: 'POST',
-      body: JSON.stringify({ "input": input })
-    });
-  } catch (error) {
-    console.log(error);
-    createToast(`Request failed. ${error}`, toastType.ERROR);
-    loading = false;
-    document.getElementById('load-overlay').remove();
-    return false;
-  }
-  const response_json = await response.json();
+    method: 'POST',
+    body: JSON.stringify({ "input": input })
+  });
+} catch (error) {
+  console.log(error);
+  createToast(`Request failed. ${error}`, toastType.ERROR);
+  loading = false;
+  document.getElementById('load-overlay').remove();
+  return false;
+}
+const response_json = await response.json();
 
 // After
 thisInput = input;
@@ -134,46 +134,151 @@ if (response_json.Type === 'Predictions') {
   // Route ID handling
 } else if (response_json.Type === 'RouteDetails') {
   document.getElementById('title-text').innerHTML = response_json.Name;
-  document.getElementById('title-subtext').innerHTML = 'Scroll down and select a stop.'
+  console.log(response_json);
   // Direction 0
   if (response_json.Direction0 !== null) {
-    document.getElementById('time-table-body').innerHTML += '<ul id="stop-list"></ul>'
-    document.getElementById('stop-list').innerHTML += '<li id="dir0-list"><span class="caret">&nbsp;' + response_json.Direction0.TripHeadsign + '</span></li>';
-    document.getElementById('dir0-list').innerHTML += '<ul class="nested" id="dir0-stops"></ul>';
-    if (response_json.Direction0.Stops.length != 0) {
-      for (i = 0; i < response_json.Direction0.Stops.length; i++) {
-        document.getElementById('dir0-stops').innerHTML += '<li onclick="updateInput(\'' + response_json.Direction0.Stops[i].StopID + '\');" class="stop-listing">' + response_json.Direction0.Stops[i].Name + '</li>';
+    var routeStopList = document.createElement('ul');
+    routeStopList.classList.add('route-stop-list');
+    document.getElementById('time-table-body').appendChild(routeStopList);
+    
+    var dir0 = document.createElement('li');
+    dir0.classList.add('direction');
+    routeStopList.appendChild(dir0);
+    
+    var dir0Chevron = document.createElement('i');
+    dir0Chevron.classList.add('fas', 'fa-chevron-right');
+    dir0Chevron.setAttribute('aria-hidden', 'true');
+    dir0.appendChild(dir0Chevron);
+    
+    var dir0Text = document.createTextNode(response_json.Direction0.TripHeadsign);
+    dir0.appendChild(dir0Text);
+    
+    var dir0Stops = document.createElement('ul');
+    dir0Stops.classList.add('stop-list', 'nested');
+    dir0Stops.setAttribute('id', 'dir0-stops');
+    routeStopList.appendChild(dir0Stops);
+    
+    if (response_json.Direction0.Stops.length !== 0) {
+      for (var i = 0; i < response_json.Direction0.Stops.length; i++) {
+        var stop = document.createElement('li');
+        stop.classList.add('stop-list-item');
+        let stopId = response_json.Direction0.Stops[i].StopID;
+        stop.addEventListener('click', function() {
+          updateInput(stopId);
+        });
+        dir0Stops.appendChild(stop);
+        
+        var routeLine = document.createElement('div');
+        routeLine.classList.add('route-line');
+        stop.appendChild(routeLine);
+        
+        var line = document.createElement('div');
+        line.classList.add('line');
+        routeLine.appendChild(line);
+        
+        var circle = document.createElement('div');
+        circle.classList.add('circle');
+        routeLine.appendChild(circle);
+        
+        var stopText = document.createTextNode(response_json.Direction0.Stops[i].Name);
+        stop.appendChild(stopText);
       }
     } else {
-      document.getElementById('time-table-body').innerHTML+='<p class="error-msg">No stop information available. Please try again later.</p>';
+      var errorMsg = document.createElement('p');
+      errorMsg.classList.add('error-msg');
+      var errorMsgText = document.createTextNode('No stop information available. Please try again later.');
+      errorMsg.appendChild(errorMsgText);
+      dir0Stops.appendChild(errorMsg);
     }
   } else {
-    document.getElementById('time-table-body').innerHTML+='<p class="error-msg">No stop information for first direction.</p>';
+    var errorMsg = document.createElement('p');
+    errorMsg.classList.add('error-msg');
+    var errorMsgText = document.createTextNode('No stop information for first direction.');
+    errorMsg.appendChild(errorMsgText);
+    document.getElementById('time-table-body').appendChild(errorMsg);
   }
   // Direction 1
   if (response_json.Direction1 !== null) {
-    document.getElementById('stop-list').innerHTML += '<li id="dir1-list"><span class="caret">&nbsp;' + response_json.Direction1.TripHeadsign + '</span></li>';
-    document.getElementById('dir1-list').innerHTML += '<ul class="nested" id="dir1-stops"></ul>';
-    if (response_json.Direction1.Stops.length != 0) {
-      for (i = 0; i < response_json.Direction1.Stops.length; i++) {
-        document.getElementById('dir1-stops').innerHTML += '<li onclick="updateInput(\'' + response_json.Direction1.Stops[i].StopID + '\');" class="stop-listing">' + response_json.Direction1.Stops[i].Name + '</li>';
+    var routeStopList = document.createElement('ul');
+    routeStopList.classList.add('route-stop-list');
+    document.getElementById('time-table-body').appendChild(routeStopList);
+    
+    var dir1 = document.createElement('li');
+    dir1.classList.add('direction');
+    routeStopList.appendChild(dir1);
+    
+    var dir1Chevron = document.createElement('i');
+    dir1Chevron.classList.add('fas', 'fa-chevron-right');
+    dir1Chevron.setAttribute('aria-hidden', 'true');
+    dir1.appendChild(dir1Chevron);
+    
+    var dir1Text = document.createTextNode(response_json.Direction1.TripHeadsign);
+    dir1.appendChild(dir1Text);
+    
+    var dir1Stops = document.createElement('ul');
+    dir1Stops.classList.add('stop-list', 'nested');
+    dir1Stops.setAttribute('id', 'dir1-stops');
+    routeStopList.appendChild(dir1Stops);
+    
+    if (response_json.Direction1.Stops.length !== 0) {
+      for (var i = 0; i < response_json.Direction1.Stops.length; i++) {
+        var stop = document.createElement('li');
+        stop.classList.add('stop-list-item');
+        let stopId = response_json.Direction1.Stops[i].StopID;
+        stop.addEventListener('click', function() {
+          updateInput(stopId);
+        });
+        dir1Stops.appendChild(stop);        
+        
+        var routeLine = document.createElement('div');
+        routeLine.classList.add('route-line');
+        stop.appendChild(routeLine);
+        
+        var line = document.createElement('div');
+        line.classList.add('line');
+        routeLine.appendChild(line);
+        
+        var circle = document.createElement('div');
+        circle.classList.add('circle');
+        routeLine.appendChild(circle);
+        
+        var stopText = document.createTextNode(response_json.Direction1.Stops[i].Name);
+        stop.appendChild(stopText);
       }
     } else {
-      document.getElementById('time-table-body').innerHTML+='<p class="error-msg">No stop information available. Please try again later.</p>';
+      var errorMsg = document.createElement('p');
+      errorMsg.classList.add('error-msg');
+      var errorMsgText = document.createTextNode('No stop information available. Please try again later.');
+      errorMsg.appendChild(errorMsgText);
+      dir1Stops.appendChild(errorMsg);
     }
   } else {
-    document.getElementById('time-table-body').innerHTML+='<p class="error-msg">No stop information for second direction.</p>';
+    var errorMsg = document.createElement('p');
+    errorMsg.classList.add('error-msg');
+    var errorMsgText = document.createTextNode('No stop information for second direction.');
+    errorMsg.appendChild(errorMsgText);
+    document.getElementById('time-table-body').appendChild(errorMsg);
   }
-  // Stop list toggler
-  var toggler = document.getElementsByClassName("caret");
-  var i;
+
+  // Stop list toggle functionality
+  // Get all direction elements
+  const directions = document.querySelectorAll('.direction');
   
-  for (i = 0; i < toggler.length; i++) {
-    toggler[i].addEventListener("click", function() {
-      this.parentElement.querySelector(".nested").classList.toggle("active");
-      this.classList.toggle("caret-down");
+  // Add click event listener to each direction element
+  directions.forEach(direction => {
+    direction.addEventListener('click', () => {
+      // Get the nested stop list element for this direction
+      const stopList = direction.nextElementSibling;
+      
+      // Toggle the 'open' class on the nested stop list element
+      stopList.classList.toggle('open');
+      
+      // Toggle the chevron icon to indicate open/close state
+      const chevron = direction.querySelector('i');
+      chevron.classList.toggle('fa-chevron-right');
+      chevron.classList.toggle('fa-chevron-down');
     });
-  }
+  });
 } else {
   document.getElementById('title-text').innerHTML = response_json.Message;
 }
