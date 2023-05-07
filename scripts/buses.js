@@ -180,8 +180,10 @@ if (response_json.Type === 'Predictions') {
         circle.classList.add('circle');
         routeLine.appendChild(circle);
         
-        var stopText = document.createTextNode(response_json.Direction0.Stops[i].Name);
-        stop.appendChild(stopText);
+        var stopText = document.createElement('div');
+        stopText.classList.add('stop-name');
+        stopText.textContent = response_json.Direction0.Stops[i].Name; // Use .Name to get the stop name
+        stop.appendChild(stopText); // append stopText instead of dir1Text
       }
     } else {
       var errorMsg = document.createElement('p');
@@ -241,9 +243,11 @@ if (response_json.Type === 'Predictions') {
         var circle = document.createElement('div');
         circle.classList.add('circle');
         routeLine.appendChild(circle);
-        
-        var stopText = document.createTextNode(response_json.Direction1.Stops[i].Name);
-        stop.appendChild(stopText);
+
+        var stopText = document.createElement('div');
+        stopText.classList.add('stop-name');
+        stopText.textContent = response_json.Direction1.Stops[i].Name; // Use .Name to get the stop name
+        stop.appendChild(stopText); // append stopText instead of dir1Text
       }
     } else {
       var errorMsg = document.createElement('p');
