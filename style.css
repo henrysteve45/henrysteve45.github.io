@@ -524,56 +524,6 @@ button#favorite-button:active, #remove-favorite-button:active {
     cursor: pointer;
   }
 }
-.nested li:not(:last-child), #favorite-list li:not(:last-child) {
-  border-bottom: 1px solid var(--border);
-}
-ul, #stop-list {
-  list-style-type: none;
-  line-height: 3rem;
-  user-select: none;
-  /* text-indent: 1rem; */
-}
-#stop-list {
-  margin: 0;
-  padding: 0;
-}
-/* Style the caret/arrow */
-.caret {
-  cursor: pointer;
-  user-select: none;
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  transition: var(--transition-speed);
-}
-@media(hover: hover) and (pointer: fine) {
-  .caret:hover {
-    color: var(--primary);
-  }
-}
-/* Create the caret/arrow with a unicode, and style it */
-.caret::before {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f0da";
-  color: var(--primary);
-  display: inline-block;
-  margin-right: 6px;
-  transition: var(--transition-speed);
-}
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.caret-down::before {
-  transform: rotate(90deg);
-}
-/* Hide the nested list */
-.nested {
-  display: none;
-}
-/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-.active {
-  display: block;
-}
 
 /* LOAD */
 #load-overlay {
@@ -720,7 +670,7 @@ section.contact small {
 }
 
 .setting-list-item:hover {
-    background: var(--highlight);
+  background: var(--highlight);
 }
 .setting-list-item span, .setting-list-item a {
   display: flex;
@@ -788,4 +738,90 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Stop Listings */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.stop-list {
+  padding-left: 0rem;
+  display: none;
+}
+
+ul.stop-list.open {
+  display: block;
+}
+
+.route-stop-list li {
+  line-height: 3rem;
+  user-select: none;
+  /* border: var(--border) solid 1px; */
+}
+
+.stop-name {width: 100%;}
+
+.route-stop-list li.direction {
+  display: flex;
+  align-items: center;
+  /* padding: 0 1rem; */
+  font-weight: 500;
+  font-size: 1.25rem;
+  /* margin-left: -0.5rem; */
+}
+
+.route-stop-list li.direction i {
+  width: 3rem;
+  display: flex;
+  transition: var(--transition-speed);
+  justify-content: center;
+  color: var(--primary);
+}
+
+.route-stop-list li.stop-list-item {
+  display: flex;
+  color: var(--small-font);
+}
+
+.route-stop-list li:hover {
+  background: var(--highlight);
+  cursor: pointer;
+  color: var(--font);
+  border-radius: var(--border-radius);
+}
+
+/* Route line decoration */
+.route-stop-list .route-line {
+  display: flex;
+  justify-content: center;
+  width: 3rem;
+  position: relative; /* Add position relative to the container */
+}
+
+.route-stop-list .line {
+  width: .5rem;
+  height: 100%;
+  background: var(--primary);
+}
+
+.route-stop-list .stop-list-item:first-child .line {
+  height: 50%;
+  transform: translateY(100%);
+}
+
+.route-stop-list .stop-list-item:last-child .line {
+  height: 50%;
+}
+
+.route-stop-list .circle {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 4px solid var(--background);
+  position: absolute; /* Add absolute positioning */
+  top: 0.75rem; /* Center vertically */
 }
