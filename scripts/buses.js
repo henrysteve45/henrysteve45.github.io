@@ -142,7 +142,7 @@ if (response_json.Type === 'Predictions') {
     document.getElementById('dir0-list').innerHTML += '<ul class="nested" id="dir0-stops"></ul>';
     if (response_json.Direction0.Stops.length != 0) {
       for (i = 0; i < response_json.Direction0.Stops.length; i++) {
-        document.getElementById('dir0-stops').innerHTML += '<li><a class="stop-listing arrow" onclick="updateInput(\'' + response_json.Direction0.Stops[i].StopID + '\')"; return false;>' + response_json.Direction0.Stops[i].Name + '</a></li>';
+        document.getElementById('dir0-stops').innerHTML += '<li onclick="updateInput(\'' + response_json.Direction0.Stops[i].StopID + '\');" class="stop-listing">' + response_json.Direction0.Stops[i].Name + '</li>';
       }
     } else {
       document.getElementById('time-table-body').innerHTML+='<p class="error-msg">No stop information available. Please try again later.</p>';
@@ -156,7 +156,7 @@ if (response_json.Type === 'Predictions') {
     document.getElementById('dir1-list').innerHTML += '<ul class="nested" id="dir1-stops"></ul>';
     if (response_json.Direction1.Stops.length != 0) {
       for (i = 0; i < response_json.Direction1.Stops.length; i++) {
-        document.getElementById('dir1-stops').innerHTML += '<li><a class="stop-listing arrow" onclick="updateInput(\'' + response_json.Direction1.Stops[i].StopID + '\')"; return false;>' + response_json.Direction1.Stops[i].Name + '</a></li>';
+        document.getElementById('dir1-stops').innerHTML += '<li onclick="updateInput(\'' + response_json.Direction1.Stops[i].StopID + '\');" class="stop-listing">' + response_json.Direction1.Stops[i].Name + '</li>';
       }
     } else {
       document.getElementById('time-table-body').innerHTML+='<p class="error-msg">No stop information available. Please try again later.</p>';

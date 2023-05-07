@@ -459,10 +459,6 @@ button.regular-button:hover i {
   /* font-size: 1rem; */
 }
 
-.arrow {
-  font-size: 1rem;
-  color: var(--font);
-}
 .time-table-data-name a {
   font-weight: 500;
   font-size: 1.125rem;
@@ -514,28 +510,15 @@ button#favorite-button:active, #remove-favorite-button:active {
 
 /* Stop list */
 .stop-listing {
-  line-height: 3rem;
-  font-weight: normal;
+  /* line-height: 3rem; */
+  /* font-weight: normal; */
   color: var(--small-font);
   transition: var(--transition-speed);
-  width: fit-content;
-  user-select: none;
-}
-/* arrow effect */
-a.arrow::after {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  content: "\f061";
-  transition: var(--transition-speed);
-  opacity: 0;
+  /* width: fit-content; */
+  /* user-select: none; */
 }
 @media(hover: hover) and (pointer: fine) {
-  a.arrow:hover::after {
-    opacity: 1;
-    margin-left: 0.5rem;
-  }
   .stop-listing:hover {
-    line-height: 2.5rem;
     font-weight: normal;
     color: var(--font);
     cursor: pointer;
@@ -548,6 +531,7 @@ ul, #stop-list {
   list-style-type: none;
   line-height: 3rem;
   user-select: none;
+  /* text-indent: 1rem; */
 }
 #stop-list {
   margin: 0;
