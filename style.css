@@ -762,6 +762,8 @@ ul.stop-list.open {
   /* border: var(--border) solid 1px; */
 }
 
+.stop-name {width: 100%;}
+
 .route-stop-list li.direction {
   display: flex;
   align-items: center;
@@ -796,8 +798,7 @@ ul.stop-list.open {
   display: flex;
   justify-content: center;
   width: 3rem;
-  height: 3rem;
-  position: relative;
+  position: relative; /* Add position relative to the container */
 }
 
 .route-stop-list .line {
