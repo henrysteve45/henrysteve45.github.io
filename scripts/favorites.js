@@ -142,6 +142,7 @@ function initFavorites() {
         stopId: parseInt(item.id),
         stopName: item.querySelector('.stop-name').textContent
       }));
+      updateAllStops(favoriteObjectsInOrder);
       // Set pointer-events to auto on all list items
       favoriteObjectsInOrder.forEach(stop => {
         document.getElementById(stop.stopId).style.pointerEvents = 'auto';
