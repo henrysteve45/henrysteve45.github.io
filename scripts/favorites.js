@@ -134,6 +134,9 @@ function initFavorites() {
       favoriteObjectsInOrder.forEach(stop => {
         document.getElementById(stop.stopId).style.pointerEvents = 'none';
       });
+      // Disable scrolling on body
+      document.body.style.overflow = 'hidden';
+
     }).on('dragend', function() {
       // Update favorites list structure after a drop
       favoriteObjectsInOrder = Array.from(favoritesContainer.querySelectorAll('.favorite-list-item'))
@@ -147,6 +150,8 @@ function initFavorites() {
       favoriteObjectsInOrder.forEach(stop => {
         document.getElementById(stop.stopId).style.pointerEvents = 'auto';
       });
+      // Enable scrolling on body
+      document.body.style.overflow = 'auto';
     });
     
   // Add favorites list to HTML
