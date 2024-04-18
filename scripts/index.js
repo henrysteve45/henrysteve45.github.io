@@ -13,6 +13,21 @@ if (currentInput) {
   document.getElementById(`user-input-field`).value = currentInput;
 }
 
+// Update WMATA API Key
+// Sets the WMATA API key in browser local storage
+function updateWmataApiKey(key) {
+  if (!/^[a-zA-Z0-9]{1,64}$/.test(key)) {
+    createToast(`Invalid WMATA API key. Please use a valid alphanumeric key of up to 64 characters.`, toastType.ERROR);
+    return;
+  }
+  localStorage.setItem("wmataApiKey", key);
+  createToast(`WMATA API key updated to ${key}`, toastType.SUCCESS);
+}
+
+function getWmataApiKey() {
+  return localStorage.getItem("wmataApiKey");
+}
+
 // Toast
 function createToast(message, type) {
   const container = document.getElementById("toast-container");

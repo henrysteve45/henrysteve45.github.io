@@ -42,9 +42,9 @@
       <div class="setting-input">
         <p>WMATA API key</p>
         <div class="setting-list-item-content">
-          <form action="#" id="api-key-form" onsubmit="updateWmataApiKey(document.getElementById('wmata-api-key-input-field').value); return false">
-            <input type="password" autocomplete="off" maxlength="32" id="wmata-api-key-input-field" class="api-input-field" placeholder="API key">
-            <button class="api-button" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
+          <form action="#" id="api-key-form" onsubmit="updateWmataApiKey(document.getElementById('api-key-input').value); return false">
+            <input type="password" autocomplete="off" maxlength="32" id="api-key-input" class="api-input-field" placeholder="API key">
+            <button id="api-button" type="submit"><i class="fa fa-check" aria-hidden="true"></i></button>
           </form>
         </div>
       </div>
