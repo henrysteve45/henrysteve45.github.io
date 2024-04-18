@@ -669,6 +669,36 @@ section.contact small {
   transition: var(--transition-speed);
 }
 
+#api-key-form {
+  display: flex;
+  align-items: center;
+}
+#api-key-input {
+  width: 100%;
+  background: var(--background2);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  color: var(--font);
+  font-size: 1rem;
+  outline: none;
+}
+.api-key-button {
+  background: var(--primary);
+  border-style: none;
+  border-radius: var(--border-radius);
+  color: var(--font);
+  padding: 1rem;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-speed);
+}
+.api-key-button:hover {
+  background: var(--primary-dark);
+}
+
 .setting-list-item:hover {
   background: var(--highlight);
 }

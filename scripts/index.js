@@ -13,6 +13,33 @@ if (currentInput) {
   document.getElementById(`user-input-field`).value = currentInput;
 }
 
+//peak button peak-button
+document.getElementById("peak-button").addEventListener("click", () => {
+  const inputField = document.getElementById("api-key-input");
+  if (inputField.type === "password") {
+    inputField.type = "text";
+  } else {
+    inputField.type = "password";
+  }
+});
+
+// Set api-key-input value to WMATA API key
+document.getElementById("api-key-input").value = localStorage.getItem("wmataApiKey") || "";
+// Update WMATA API Key
+// Sets the WMATA API key in browser local storage
+function updateWmataApiKey(key) {
+  if (!/^[a-zA-Z0-9]{1,128}$/.test(key)) {
+    createToast(`Invalid WMATA API key. Please use a valid alphanumeric key of up to 128 characters.`, toastType.ERROR);
+    return;
+  }
+  localStorage.setItem("wmataApiKey", key);
+  createToast(`WMATA API key updated to ${key}`, toastType.SUCCESS);
+}
+
+function getWmataApiKey() {
+  return localStorage.getItem("wmataApiKey");
+}
+
 // Toast
 function createToast(message, type) {
   const container = document.getElementById("toast-container");

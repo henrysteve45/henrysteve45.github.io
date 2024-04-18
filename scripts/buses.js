@@ -70,6 +70,67 @@ function validateInput(rawInput) {
   return regex.test(input);
 }
 
+// wmata
+async function getWmataData(input) {
+  // Get WMATA secret value
+  const wmataSecret = getWmataApiKey();
+  console.log(wmataSecret);
+
+  // Input validation
+  const inputValid = input.match(/^(\d{7}|[A-Z0-9]{2,3})$/i)
+  if (!inputValid) {
+      const msg = JSON.stringify({Message: 'Failed input validation', Type: 'Error'});
+      return JSON.parse(msg), '400';
+  }
+
+  let requestType;
+  if (input.length <= 3) {
+      // Requesting list of stops for given route
+      requestType = 'RouteDetails';
+  } else if (input.length == 7) {
+      // Requesting bus predictions for given stop id
+      requestType = 'Predictions';
+  }
+  console.log(`Request type: ${requestType}`);
+  // Requesting predictions or route details?
+  let params;
+  let service = 'NextBusService';
+  if (requestType == 'Predictions') {
+      params = new URLSearchParams({
+          'StopID': input,
+      });
+  } else {
+      service = 'Bus'
+      params = new URLSearchParams({
+          'RouteId': input,
+      });
+  }
+
+  // Get data from WMATA
+  const headers = new Headers();
+  headers.set('api_key', wmataSecret);
+  headers.set('Host', 'api.wmata.com');
+  const response = await fetch(`https://api.wmata.com/${service}.svc/json/j${requestType}?${params.toString()}`, {
+    method: 'GET',
+    headers: headers,
+  })
+  .then(res => {
+    return res.json();
+  })
+  .then(data => data)
+  .catch(err => {
+    console.log(err);
+  });
+  console.log('Wmata response: ', response);
+  if (response['statusCode'] != 200) {
+      const msg = JSON.stringify({Message: response['message'], Type: 'Error'});
+      createToast(response['message'], toastType.ERROR);
+      return JSON.parse(msg), '400';
+  }
+  response['Type'] = requestType;
+  return response;
+}
+
 // API call to get and apply WMATA data
 async function lookupInput(input) {
   if (loading) {
@@ -83,18 +144,17 @@ async function lookupInput(input) {
   // document.getElementById('searchbar-button').disabled = true;
   let response;
   try {
-    response = await fetch('https://t4i9xvc6y9.execute-api.us-east-1.amazonaws.com/default/wmata', {
-    method: 'POST',
-    body: JSON.stringify({ "input": input })
-  });
-} catch (error) {
-  console.log(error);
-  createToast(`Request failed. ${error}`, toastType.ERROR);
-  loading = false;
-  document.getElementById('load-overlay').remove();
-  return false;
-}
-const response_json = await response.json();
+    response = await getWmataData(input);
+    console.log('response: ', response);
+  } catch (error) {
+    console.log(error);
+    createToast(`Request failed. ${error}`, toastType.ERROR);
+    loading = false;
+    document.getElementById('load-overlay').remove();
+    return false;
+  }
+const response_json = await getWmataData(input);
+console.log('response_json: ', response_json);
 
 // After
 thisInput = input;

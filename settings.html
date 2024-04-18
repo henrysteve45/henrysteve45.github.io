@@ -39,6 +39,16 @@
       <div class="setting-list-item">
         <a href="https://www.wmata.com/"><i class="fa-solid fa-arrow-up-right-from-square"></i><p>Official WMATA website</p></a>
       </div>
+      <div class="setting-input">
+        <p>WMATA API key</p>
+        <div class="setting-list-item-content">
+          <form action="#" id="api-key-form" onsubmit="updateWmataApiKey(document.getElementById('api-key-input').value); return false">
+            <input type="password" autocomplete="off" maxlength="32" id="api-key-input" class="api-input-field" placeholder="API key">
+			<button id="peak-button" type="button"><i class="fa-solid fa-eye api-key-button"></i></button>
+            <button id="api-button" type="submit"><i class="fa fa-check api-key-button" aria-hidden="true"></i></button>
+          </form>
+        </div>
+      </div>
 		</div>
 		<div class="bottom-nav">
 			<a href="index.html" class="bottom-nav-button"><i class="fa-solid fa-heart"></i><small>Favorites</small></a>
