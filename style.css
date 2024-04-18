@@ -669,6 +669,11 @@ section.contact small {
   transition: var(--transition-speed);
 }
 
+.api-key-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .setting-list-item:hover {
   background: var(--highlight);
 }
