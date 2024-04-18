@@ -684,7 +684,7 @@ section.contact small {
   font-size: 1rem;
   outline: none;
 }
-#api-button {
+.api-key-button {
   background: var(--primary);
   border-style: none;
   border-radius: var(--border-radius);
@@ -695,7 +695,7 @@ section.contact small {
   cursor: pointer;
   transition: var(--transition-speed);
 }
-#api-button:hover {
+.api-key-button:hover {
   background: var(--primary-dark);
 }
 
