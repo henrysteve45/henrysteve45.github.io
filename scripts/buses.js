@@ -122,9 +122,9 @@ async function getWmataData(input) {
     console.log(err);
   });
   console.log('Wmata response: ', response);
-  if (response['statusCode'] != 200) {
+  if (response['statusCode'] && response['statusCode'] != 200) {
       const msg = JSON.stringify({Message: response['message'], Type: 'Error'});
-      createToast(response['message'], toastType.ERROR);
+      createToast(`Error:` + response['message'], toastType.ERROR);
       return JSON.parse(msg), '400';
   }
   response['Type'] = requestType;
